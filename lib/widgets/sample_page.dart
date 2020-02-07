@@ -41,7 +41,6 @@ class _SampleBody extends StatelessWidget {
       child: BlocBuilder(
         bloc: BlocProvider.of<SampleBloc>(context),
         condition: (prev, state) {
-          // HACK: 保存処理時は画面の再描画がしたくない
           return state is! SaveProgressState && state is! SaveSuccessState;
         },
         builder: (context, state) {
