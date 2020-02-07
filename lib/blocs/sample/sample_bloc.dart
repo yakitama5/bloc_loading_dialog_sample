@@ -24,12 +24,10 @@ class SampleBloc extends Bloc<SampleEvent, SampleState> {
     }
   }
 
-  /// 初期表示
   Stream<SampleState> _init(InitEvent event) async* {
     yield DispProgressState();
 
     try {
-      // 取得処理
       await _repository.fetch();
 
       yield DispSuccessState();
@@ -38,12 +36,10 @@ class SampleBloc extends Bloc<SampleEvent, SampleState> {
     }
   }
 
-  /// 保存
   Stream<SampleState> _save(SaveEvent event) async* {
     yield SaveProgressState();
 
     try {
-      // 保存処理
       await _repository.insert();
       yield SaveSuccessState();
     } catch (_) {

@@ -1,3 +1,4 @@
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ques_sample/blocs/sample/sample_bloc.dart';
 import 'package:ques_sample/blocs/sample/sample_event.dart';
 import 'package:ques_sample/blocs/sample/sample_state.dart';
@@ -34,6 +35,7 @@ class _SampleBody extends StatelessWidget {
         // ダイアログ閉じる
         if (state is SaveSuccessState) {
           Navigator.pop(context);
+          Fluttertoast.showToast(msg: "保存が完了しました");
         }
       },
       child: BlocBuilder(
